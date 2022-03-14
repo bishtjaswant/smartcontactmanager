@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org"  th:replace="user/base::dashboard__layout(~{::section})" >
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+   <section th:class="container">
+       <div class="card p-4">
+
+
+           <p th:if="${message}" class="alert alert-success" th:text="${message}"> </p>
+           <p th:if="${error}" class="alert alert-danger" th:text="${error}"> </p>
+
+
+           <h1 class="display-3 text-primary text-capitalize">add contact details</h1>
+
+           <form th:action="@{/user/process-contact-form}" method="post" th:object="${contact}" enctype="multipart/form-data">
+               <div class="form-outline">
+                   <i class='bx bxs-user-check trailing'></i>
+                   <input type="text" id="name" name="name" class="form-control form-icon-trailing" />
+                   <label class="form-label text-capitalize" for="name">name</label>
+               </div>
+
+
+               <div class="form-outline my-2">
+                   <i class='bx bxs-envelope-open trailing'></i>
+                   <input type="text" id="email" name="email" class="form-control form-icon-trailing" />
+                   <label class="form-label text-capitalize" for="email">Email</label>
+
+               </div>
+
+
+
+             <div class="form-outline my-2">
+                   <i class='bx bxs-phone-call trailing'></i>
+                   <input type="text" id="number" name="number" class="form-control form-icon-trailing" />
+                   <label class="form-label text-capitalize" for="number">Number </label>
+
+               </div>
+
+
+                <div class="form-outline my-2">
+                   <i class='bx bxs-face trailing'></i>
+                   <input type="text" id="nick_name" name="nick_name" class="form-control form-icon-trailing" />
+                   <label class="form-label text-capitalize" for="nick_name">Nick Name </label>
+                </div>
+
+               <div class="form-outline my-2">
+                   <i class='bx bxs-briefcase-alt-2 trailing'></i>
+                   <input id="work" name="work" class="form-control form-icon-trailing "/>
+                   <label class="form-label text-capitalize" for="number">work </label>
+
+               </div>
+
+               <div class="form-outline my-2">
+                   <textarea id="description" name="description"  class="form-control "> </textarea>
+                   <label class="form-label text-capitalize" for="description">Description (Optional) </label>
+
+               </div>
+
+               <div class="my-2">
+                   <label class="form-label"  for="customFile">Upload an Image</label>
+                   <input type="file"  name="fileUpload" class="form-control" id="customFile" />
+               </div>
+
+               <div class="my-2">
+                   <button class="btn bg-primary text-white"  type="submit">Add</button>
+               </div>
+
+
+           </form>
+       </div>
+
+
+
+       <script>
+       $(".item.active").removeClass("active");
+       $("#add-link").addClass("active");
+   </script>
+   </section>
+
+
+
+</body>
+</html>

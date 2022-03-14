@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org"  th:replace="user/base::dashboard__layout(~{::section})" >
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<section th:class="container">
+    <div class="card p-4">
+
+
+        <p th:if="${session.message}" th:class="${session.message.type}" th:text="${session.message.content}"> </p>
+
+
+        <h1 class="display-3 text-primary text-capitalize">Update contact details</h1>
+
+        <form th:action="@{/user/update-contact}" method="post" th:object="${contact}" enctype="multipart/form-data">
+
+
+         <input type="hidden" name="id" th:value="${contact.id}"/>
+
+            <div class="form-outline">
+                <i class='bx bxs-user-check trailing'></i>
+                <input type="text" id="name" name="name"  th:value="${contact.name}" class="form-control form-icon-trailing" />
+                <label class="form-label text-capitalize" for="name">name</label>
+            </div>
+
+
+            <div class="form-outline my-2">
+                <i class='bx bxs-envelope-open trailing'></i>
+                <input type="text" id="email"   th:value="${contact.email}" name="email" class="form-control form-icon-trailing" />
+                <label class="form-label text-capitalize" for="email">Email</label>
+
+            </div>
+
+
+
+            <div class="form-outline my-2">
+                <i class='bx bxs-phone-call trailing'></i>
+                <input type="text" id="number" name="number"  th:value="${contact.number}" class="form-control form-icon-trailing" />
+                <label class="form-label text-capitalize" for="number">Number </label>
+
+            </div>
+
+
+            <div class="form-outline my-2">
+                <i class='bx bxs-face trailing'></i>
+                <input type="text" id="nick_name" name="nick_name"  th:value="${contact.nick_name}" class="form-control form-icon-trailing" />
+                <label class="form-label text-capitalize" for="nick_name">Nick Name </label>
+            </div>
+
+            <div class="form-outline my-2">
+                <i class='bx bxs-briefcase-alt-2 trailing'></i>
+                <input id="work" name="work"  th:value="${contact.work}"  class="form-control form-icon-trailing "/>
+                <label class="form-label text-capitalize" for="number">work </label>
+
+            </div>
+
+            <div class="form-outline my-2">
+                <textarea id="description" name="description"  th:text="${contact.description}" class="form-control "> </textarea>
+                <label class="form-label text-capitalize" for="description">Description (Optional) </label>
+
+            </div>
+
+            <div class="my-2">
+               <div class="d-flex align-items-center">
+
+                   <img class="img-fluid" width="80px" th:src="@{'/images/'+${contact.imgUrl}}">
+
+                   <div class="group mx-4">
+                       <label class="form-label"  for="customFile">Upload an Image</label>
+                       <input type="file"  name="fileUpload" class="form-control" id="customFile" />
+                   </div>
+               </div>
+            </div>
+
+            <div class="my-2">
+                <button class="btn bg-primary text-white"  type="submit">Update</button>
+            </div>
+
+
+        </form>
+    </div>
+</section>
+</body>
+</html>

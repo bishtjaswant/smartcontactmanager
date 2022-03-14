@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org" th:replace="base::layout(~{::section})">
+<head>
+
+</head>
+<body>
+
+<section class="container">
+    <div class="row">
+        <div class="col-md-8 offset-2">
+            <form   th:action="@{/process}" method="post" th:object="${user}" enctype="multipart/form-data">
+                <div class="  shadow-5 py-2 px-4 mt-5">
+
+                    <div th:if="${message}" th:class="${message.type}" th:text="${message.content}" role="alert"></div>
+                    <div th:if="${error}" th:class="${error.type}" th:text="${error.content}" role="alert"></div>
+
+                    <h1>Registration here</h1>
+
+                    <div class="form-outline my-2">
+                        <input type="text" id="name" required th:value="${user.name}" name="name" class="form-control"/>
+                        <label class="form-label" for="name">Enter Name</label>
+                     </div>
+
+                    <div class="form-outline my2">
+                        <input type="email" id="email" required th:value="${user.email}" name="email"
+                               class="form-control"/>
+                        <label class="form-label" for="email">Enter Email Address</label>
+                    </div>
+
+                    <div class="form-outline my-2">
+                        <input type="password"   name="password" required th:value="${user.password}" id="password"
+                               class="form-control"/>
+                        <label class="form-label" for="password">Enter Password</label>
+                    </div>
+
+                    <!--                     <select class="form-select my-2" name="role" aria-label="Default select example">-->
+                    <!--                         <option selected>Choose Role</option>-->
+                    <!--                         <option value="admin">Admin</option>-->
+                    <!--                         <option value="user">User</option>-->
+                    <!--                     </select>-->
+
+                    <div class="form-outline my-2">
+                        <textarea class="form-control" required th:value="${user.about_yourself}" name="about_yourself"
+                                  id="about" rows="4"></textarea>
+                        <label class="form-label" for="about">About Yourself</label>
+                    </div>
+
+
+                    <div class="my-2">
+                        <input class="form-control form-control-lg" name="userFile" id="formFileLg" type="file"/>
+                    </div>
+
+
+                    <!-- Checked checkbox -->
+                    <div class="form-check my-2">
+                        <input class="form-check-input" type="checkbox" value="true" name="terms" id="flexCheckChecked"
+                        />
+                        <label class="form-check-label" for="flexCheckChecked">Accept Term & Condition </label>
+                    </div>
+
+                    <div class="my-2">
+                        <button type="submit" class="btn text-white bg-primary">Register</button>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</section>
+
+
+</body>
+</html>

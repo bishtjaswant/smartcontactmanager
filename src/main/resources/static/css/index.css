@@ -1,0 +1,39 @@
+
+
+html:root{
+    --primary:#C22D2F;
+    --text-primary:#C22D2F;
+    --secondary:#FB9E34;
+    --text:#F0F0F2;
+}
+
+.bg-primary{
+    background-color: var(--primary) !important;
+}
+.text-primary{
+    color: var(--text-primary) !important;
+}
+.banner {
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient( to right, rgba(0,0,0,.9), rgba(0,0,0,.7) 66% ), url(../images/call-center.jpg) no-repeat;
+    background-size: cover;
+    color: var(--text);
+}
+
+/*login page css*/
+#login .container #login-row #login-column #login-box {
+    /*margin-top: 120px;*/
+    max-width: 600px;
+    height: 320px;
+    border: 1px solid #9C9C9C;
+    /*background-color: var(--primary);*/
+}
+#login .container #login-row #login-column #login-box #login-form {
+    padding: 20px;
+}
+#login .container #login-row #login-column #login-box #login-form #register-link {
+    /*margin-top: -85px;*/
+}
+
+/*login page css*/

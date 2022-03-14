@@ -1,0 +1,25 @@
+.show-detail  .image{
+    width: 30%;
+    object-fit: cover;
+    clip-path: circle();
+    min-width: 20%;
+}
+
+
+/*contactt csss*/
+.search-container {
+    position: relative;
+}
+.search-container #search-result{
+    position: absolute;
+     background-color: #ffffff;
+    padding: 10px 15px;
+    width: 100%;
+    text-align: left;
+    color: #1f1d1a;
+    box-shadow:
+            12.5px 12.5px 10px rgba(0, 0, 0, 0.035),
+            100px 100px 80px rgba(0, 0, 0, 0.07);
+    z-index: 1;
+    display: none;
+}

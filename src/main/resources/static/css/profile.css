@@ -1,0 +1,19 @@
+
+.my-card {
+    position: relative;
+}
+
+.my-card img  {
+    width: 10%;
+    min-width: 75px;
+    height: auto;
+}
+
+.my-card .card-img {
+    position: absolute;
+    left: 50%;
+    top: -24%;
+    clip-path: circle();
+    transform: translate(-50%, -50%);
+    top: 1%;
+}

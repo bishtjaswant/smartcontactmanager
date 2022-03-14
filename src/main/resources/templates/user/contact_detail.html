@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org" th:replace="user/base::dashboard__layout(~{::section})">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<section>
+
+    <div class="container show-detail">
+
+        <div class="card">
+
+            <div class="card-body">
+                <h1 class="text-center" th:text="${contact.name}">        </h1>
+               <div class="wrapper  d-flex justify-content-center align-items-center">
+                   <img th:src="@{'/images/'+${contact.imgUrl}}" class="image" alt="">
+                   <div class="detail">
+                       <table class="table">
+                           <thead>
+
+                           </thead>
+                           <tbody>
+                                <tr>
+                                    <th>Name</th>
+                                    <td th:text="${contact.name}"></td>
+                                </tr>
+                                <tr>
+                                    <th>Email</th>
+                                    <td th:text="${contact.email}"></td>
+                                </tr>
+
+                                <tr>
+                                    <th>Phone</th>
+                                    <td th:text="${contact.number}"></td>
+                                </tr>
+
+                                <tr>
+                                    <th>Work</th>
+                                    <td th:text="${contact.work}"></td>
+                                </tr>
+
+                           </tbody>
+                       </table>
+                   </div>
+               </div>
+
+                <div class=" text-center mt-5">
+                    <strong> Description</strong>
+                    <p th:text="${contact.description}">  </p>
+
+                    <a  th:href="@{/user/contact-list/0}"  class="btn btn-primary btn-lg ">Home</a>
+                    <a  href="#"   th:onclick="|deleteContactById(${contact.id})|"  class="btn btn-danger btn-lg ">Delete It ?</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+</body>
+</html>

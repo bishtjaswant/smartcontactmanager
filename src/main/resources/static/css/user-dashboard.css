@@ -1,0 +1,130 @@
+
+html:root{
+    --primary:#C22D2F;
+    --text-primary:#C22D2F;
+    --secondary:#FB9E34;
+    --text:#F0F0F2;
+    --bg-gray: #efefef;
+}
+
+.bg-primary{
+    background-color: var(--primary) !important;
+}
+.text-primary{
+    color: var(--text-primary) !important;
+}
+
+body{
+    background-color: var(--bg-gray);
+}
+
+
+/*sidebar css */
+.sidebar{
+    width: 20%;
+    height: 100vh;
+    padding-top: 10px;
+    background-color: #ffffff;
+    position: fixed;
+    /*display: none;*/
+    z-index: 100;
+    transition: 4s all linear;
+}
+
+#crossx {
+    position: absolute;
+    right: 18px;
+    cursor: pointer;
+    color: #969494;
+    padding-bottom: 18px;
+    display: none;
+}
+
+
+.sidebar a {
+    display: block;
+    width: 100%;
+    padding:5px 20px;
+    color: #969494;
+    text-transform: capitalize;
+
+    transition: .3s all ease-in-out;
+}
+
+.sidebar a .bx {
+    margin-right: 10px;
+    font-size: 1.1rem;
+}
+
+.sidebar  a:hover{
+    background-color: #e2e2e2;
+}
+
+.sidebar   .social-media{
+    position: absolute;
+    left: 50%;
+    bottom: 75px;
+    transform: translateX(-50%);
+
+    display: flex;
+}
+
+.social-media .bx {
+    font-size: 20px;
+    transition: .5s all linear;
+    cursor: pointer;
+    margin: 0 4px;
+}
+
+.social-media .bx:hover{
+    transform: scale(1.4);
+}
+
+
+.sidebar .active{
+    background-color: var(--primary) !important;
+    color: var(--text) !important;
+}
+
+/*sidebar css */
+
+/*right-content css */
+.right-content {
+    margin-left:300px
+}
+
+#menu-icon {
+    font-size: 25px;
+    color: var(--text-primary);
+    cursor: pointer;
+}
+/*right-content css */
+
+
+/*contact css */
+.contact {
+
+}
+.bx  {
+    font-size: 25px;
+}
+/*contact css */
+
+
+@media screen and (max-width: 600px) {
+    .sidebar{
+        width: 100%;
+        display: none;
+
+    }
+    
+    #crossx{
+        display: block;
+    }
+
+    .right-content{
+        margin-left: 0;
+    }
+    
+    
+}

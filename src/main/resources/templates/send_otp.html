@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org" th:replace="base::layout(~{::section})">
+<head>
+
+</head>
+<body>
+
+<section th:class="banner">
+    <div class="container d-flex justify-content-center align-items-center h-100 w-100">
+        <div class="card p-5">
+            <p th:if="${message}" class="alert alert-success" th:text="${message}"> </p>
+            <p th:if="${error}" class="alert alert-danger" th:text="${error}"> </p>
+
+            <h1 style="color: #2b608e;"> Verify OTP </h1>
+
+
+
+             <form th:action="@{/verifyOtp}" method="post">
+                <div class="form-outline  mt-1">
+                    <input type="number" name="otp" id="form12" class="form-control" />
+                    <label class="form-label" for="form12">Email OTP</label>
+                </div>
+                <div >
+                    <button type="submit" class="btn  mt-1 btn-warning">Verify OTP</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</section>
+</body>
+</html>

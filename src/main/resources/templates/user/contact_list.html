@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="https://www.thymeleaf.org" th:replace="user/base::dashboard__layout(~{::section})">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<section>
+
+<div class="container">
+    <div class="card">
+         <div class="d-flex justify-content-between align-items-center px-2 pt-3">
+             <h3>Contact List</h3>
+
+             <div class="search-container">
+
+                 <div class="form-outline">
+                     <i class="bx bx-search-alt trailing"></i>
+                     <input type="text" th:onkeyup="|searchQuery()|" id="search-input"  class="form-control form-icon-trailing" />
+                     <label class="form-label" for="search-input">Search Contact....</label>
+                 </div>
+
+                 <div class="" id="search-result">
+
+                 </div>
+
+             </div>
+         </div>
+
+        <div class="table-responsive">
+            <table class="table ">
+                <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Phone</th>
+                    <th scope="col">Avatar</th>
+                    <th scope="col">Handle</th>
+                </tr>
+                </thead>
+                <tbody>
+
+                <tr th:each="contact:${contacts}">
+                    <th scope="row" th:text="${'SCM2022-'+contact.id}" > </th>
+                    <td><a th:href="@{'/user/show-detail/'+${contact.id} }"  th:text="${contact.name}"></a> </td>
+                    <td th:text="${contact.email}"> </td>
+                    <td th:text="${contact.number}"> </td>
+                    <td><img th:src="@{'/images/'+${contact.imgUrl}}" alt="" width="75" class="img-fluid"></td>
+                    <td>
+                        <a th:href="@{'/user/edit-contact/'+${contact.id}}" class="mx-1">Edit</a>
+                        <a class="link-danger mx-1" th:onclick="|deleteContactById(${contact.id})|">Delete</a>
+                </tr>
+
+                </tbody>
+            </table>
+
+        </div>
+
+        <p  class="text-center display-5 text-capitalize text-danger"  th:unless="${not #lists.isEmpty(contacts)}"> There is noo contacts</p>
+
+
+    </div>
+
+
+    <!--    pagination of contacts-->
+    <nav    th:if="${ not #lists.isEmpty(contacts)}" aria-label="..." class="mt-5 text-center mb-2">
+        <ul class="pagination">
+            <li class="page-item " th:classappend="${currentPage== 0?'disabled':''}">
+                <a th:href="${currentPage - 1}" class="page-link">Previous</a>
+            </li>
+
+            <li th:classappend="${currentPage == (i - 1) ?'active':''}" th:each="i : ${#numbers.sequence(1,totalPages)}" class="page-item  " aria-current="page">
+                <a class="page-link" th:href="@{'/user/contact-list/'+${i  - 1}}" th:text="${i }" >  </a>
+            </li>
+
+            <li class="page-item" th:classappend="${ currentPage + 1 == totalPages  ?'disabled':''}"   >
+                <a class="page-link" th:href="${currentPage+1}">Next</a>
+            </li>
+        </ul>
+
+    </nav>
+
+    <!--    pagination of contacts-->
+
+
+</div>
+
+    <script>
+
+        $(".item").removeClass("active");
+        $("#view-link").addClass("active");
+    </script>
+</section>
+</body>
+</html>
