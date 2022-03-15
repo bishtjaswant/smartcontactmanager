@@ -18,10 +18,10 @@ public class EmailService{
             try {
             // Sender's email ID needs to be mentioned
 
-             String from = "jaswantbistuk1995@gmail.com";//change accordingly
+             String from = "jaswantbishtfuck@gmail.com";//change accordingly
 
-            final String username = "honeypotv2021guru@gmail.com";//change accordingly
-            final String password = "srsti@devi2021";//change accordingly
+            final String username = "jhghjnb@gmail.com";//your email here
+            final String password = "soijnnbvcvbn";//your email pass
 
             // GMail's SMTP server
             String host = "smtp.gmail.com";
